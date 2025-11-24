@@ -1,0 +1,10 @@
+com\utec\cs3081\Main.class
+com\utec\cs3081\domain\model\Evaluation.class
+com\utec\cs3081\domain\model\Student.class
+com\utec\cs3081\domain\policy\AttendancePolicy.class
+com\utec\cs3081\domain\policy\StandardAttendancePolicy.class
+com\utec\cs3081\domain\model\GradeReport.class
+com\utec\cs3081\domain\policy\ExtraPointsPolicy.class
+com\utec\cs3081\infrastructure\cli\ConsoleInterface.class
+com\utec\cs3081\domain\policy\YearlyAgreementPolicy.class
+com\utec\cs3081\domain\service\GradeCalculator.class
