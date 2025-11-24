@@ -98,4 +98,17 @@ class GradeCalculatorTest {
              new Evaluation("Bad", 10.0, 150.0);
         });
     }
+    
+    @Test
+    void shouldThrowException_WhenExceedingMaxEvaluations() {
+        // Add 10 evaluations (maximum allowed)
+        for (int i = 1; i <= 10; i++) {
+            student.addEvaluation(new Evaluation("Eval " + i, 10.0, 10.0));
+        }
+        
+        // Attempting to add the 11th should throw exception
+        assertThrows(IllegalStateException.class, () -> {
+            student.addEvaluation(new Evaluation("Eval 11", 10.0, 10.0));
+        });
+    }
 }

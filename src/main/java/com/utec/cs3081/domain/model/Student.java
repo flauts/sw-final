@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class Student {
+    private static final int MAX_EVALUATIONS = 10;
+    
     private final String code;
     private final List<Evaluation> evaluations;
     private boolean hasReachedMinimumClasses;
@@ -16,6 +18,9 @@ public class Student {
     }
 
     public void addEvaluation(Evaluation evaluation) {
+        if (evaluations.size() >= MAX_EVALUATIONS) {
+            throw new IllegalStateException("Cannot add more than " + MAX_EVALUATIONS + " evaluations per student");
+        }
         this.evaluations.add(evaluation);
     }
 
