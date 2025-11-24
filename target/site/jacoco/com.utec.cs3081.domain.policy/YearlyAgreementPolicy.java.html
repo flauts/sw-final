@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>YearlyAgreementPolicy.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">cs-grade-calculator</a> &gt; <a href="index.source.html" class="el_package">com.utec.cs3081.domain.policy</a> &gt; <span class="el_source">YearlyAgreementPolicy.java</span></div><h1>YearlyAgreementPolicy.java</h1><pre class="source lang-java linenums">package com.utec.cs3081.domain.policy;
+
+import com.utec.cs3081.domain.model.Student;
+import java.util.List;
+
+<span class="fc" id="L6">public class YearlyAgreementPolicy implements ExtraPointsPolicy {</span>
+    private static final double BONUS_POINTS = 1.0;
+
+    @Override
+    public double calculateBonus(Student student, List&lt;Boolean&gt; allYearsTeachers) {
+<span class="pc bpc" id="L11" title="1 of 4 branches missed.">        if (allYearsTeachers == null || allYearsTeachers.isEmpty()) {</span>
+<span class="fc" id="L12">            return 0.0;</span>
+        }
+        // RF03: &quot;si los docentes del curso están de acuerdo&quot; -&gt; implies ALL must agree?
+        // Or just &quot;if the list contains true&quot;? The prompt says &quot;Variable: allYearsTeachers con valores True/False&quot;.
+        // Usually &quot;agreement&quot; implies consensus or majority.
+        // Let's assume consensus (all must be true) for now, or maybe just checking if the policy is active for the year.
+        // Re-reading RF03: &quot;registrar... si los docentes... están de acuerdo&quot;.
+        // And RF05: &quot;puntos extra evitados&quot;.
+        // Let's assume if ALL are true, then bonus. Or maybe it's a list of years?
+        // &quot;Variable: allYearsTeachers con valores True/False&quot; -&gt; List&lt;Boolean&gt;.
+        // Let's assume if ALL elements in the list are true, then bonus is applied.
+        // Wait, &quot;para cada año académico&quot;. Maybe the list represents agreement for *this* student's year?
+        // Let's assume the input list represents the agreement status for the relevant context.
+        // If the list contains ANY false, then no agreement? Or is it a list of votes?
+        // Let's go with: if the list is not empty and ALL are true, then bonus.
+        
+<span class="fc" id="L28">        boolean allAgreed = true;</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        for (Boolean agreed : allYearsTeachers) {</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">            if (!Boolean.TRUE.equals(agreed)) {</span>
+<span class="fc" id="L31">                allAgreed = false;</span>
+<span class="fc" id="L32">                break;</span>
+            }
+<span class="fc" id="L34">        }</span>
+        
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        return allAgreed ? BONUS_POINTS : 0.0;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

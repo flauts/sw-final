@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.utec.cs3081.domain.GradeCalculatorTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.137 s -- in com.utec.cs3081.domain.GradeCalculatorTest
