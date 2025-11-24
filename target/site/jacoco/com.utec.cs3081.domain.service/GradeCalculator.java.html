@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GradeCalculator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">cs-grade-calculator</a> &gt; <a href="index.source.html" class="el_package">com.utec.cs3081.domain.service</a> &gt; <span class="el_source">GradeCalculator.java</span></div><h1>GradeCalculator.java</h1><pre class="source lang-java linenums">package com.utec.cs3081.domain.service;
+
+import com.utec.cs3081.domain.model.Evaluation;
+import com.utec.cs3081.domain.model.GradeReport;
+import com.utec.cs3081.domain.model.Student;
+import com.utec.cs3081.domain.policy.AttendancePolicy;
+import com.utec.cs3081.domain.policy.ExtraPointsPolicy;
+
+import java.util.List;
+
+public class GradeCalculator {
+    private final AttendancePolicy attendancePolicy;
+    private final ExtraPointsPolicy extraPointsPolicy;
+
+<span class="fc" id="L15">    public GradeCalculator(AttendancePolicy attendancePolicy, ExtraPointsPolicy extraPointsPolicy) {</span>
+<span class="fc" id="L16">        this.attendancePolicy = attendancePolicy;</span>
+<span class="fc" id="L17">        this.extraPointsPolicy = extraPointsPolicy;</span>
+<span class="fc" id="L18">    }</span>
+
+    public GradeReport calculate(Student student, List&lt;Boolean&gt; allYearsTeachers) {
+<span class="fc" id="L21">        GradeReport report = new GradeReport(0.0); // Initial dummy, will replace</span>
+
+        // 1. Check Attendance
+<span class="fc bfc" id="L24" title="All 2 branches covered.">        if (!attendancePolicy.isMet(student)) {</span>
+            // If attendance not met, what happens?
+            // Usually fail or max grade cap. Rubric doesn't specify exact penalty, 
+            // but RF02 says &quot;registrar si cumplió&quot;.
+            // Let's assume if not met, grade is 0 or failed. 
+            // However, to be &quot;functional&quot;, let's calculate but add a warning/failure message.
+            // Or maybe return 0? 
+            // Let's calculate the real grade but cap it or mark as failed.
+            // For this implementation, I will calculate normally but add a CRITICAL message 
+            // and maybe cap at 10 or 0 if strict. 
+            // Given &quot;Nota final&quot;, usually attendance failure = 0 or DPR.
+            // I'll set it to 0.0 and add a message.
+<span class="fc" id="L36">            GradeReport failReport = new GradeReport(0.0);</span>
+<span class="fc" id="L37">            failReport.addMessage(&quot;ATTENDANCE FAILURE: Student did not meet minimum attendance requirements.&quot;);</span>
+<span class="fc" id="L38">            return failReport;</span>
+        }
+
+        // 2. Calculate Weighted Average
+<span class="fc" id="L42">        double weightedSum = 0.0;</span>
+<span class="fc" id="L43">        double totalWeight = 0.0;</span>
+        
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        for (Evaluation eval : student.getEvaluations()) {</span>
+<span class="fc" id="L46">            weightedSum += eval.getScore() * (eval.getWeight() / 100.0);</span>
+<span class="fc" id="L47">            totalWeight += eval.getWeight();</span>
+<span class="fc" id="L48">        }</span>
+
+<span class="fc" id="L50">        GradeReport tempReport = new GradeReport(0.0); // mutable builder would be better but this works</span>
+        
+<span class="fc bfc" id="L52" title="All 2 branches covered.">        if (Math.abs(totalWeight - 100.0) &gt; 0.01) {</span>
+<span class="fc" id="L53">            tempReport.addMessage(&quot;WARNING: Total weight is &quot; + totalWeight + &quot;%, not 100%.&quot;);</span>
+        }
+
+        // 3. Apply Bonus
+<span class="fc" id="L57">        double bonus = extraPointsPolicy.calculateBonus(student, allYearsTeachers);</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        if (bonus &gt; 0) {</span>
+<span class="fc" id="L59">            weightedSum += bonus;</span>
+<span class="fc" id="L60">            tempReport.addMessage(&quot;BONUS APPLIED: +&quot; + bonus + &quot; points.&quot;);</span>
+        } else {
+             // RF05: &quot;mencionar... puntos extra evitados&quot;
+             // If bonus was possible but not applied (e.g. teachers didn't agree)
+<span class="fc" id="L64">             tempReport.addMessage(&quot;BONUS NOT APPLIED: Conditions not met.&quot;);</span>
+        }
+
+        // 4. Cap at 20 (RNF01)
+<span class="fc bfc" id="L68" title="All 2 branches covered.">        if (weightedSum &gt; 20.0) {</span>
+<span class="fc" id="L69">            weightedSum = 20.0;</span>
+<span class="fc" id="L70">            tempReport.addMessage(&quot;GRADE CAPPED: Calculated grade exceeded 20.&quot;);</span>
+        }
+
+        // Create final report
+<span class="fc" id="L74">        GradeReport finalReport = new GradeReport(weightedSum);</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">        for (String msg : tempReport.getMessages()) {</span>
+<span class="fc" id="L76">            finalReport.addMessage(msg);</span>
+<span class="fc" id="L77">        }</span>
+        
+<span class="fc" id="L79">        return finalReport;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

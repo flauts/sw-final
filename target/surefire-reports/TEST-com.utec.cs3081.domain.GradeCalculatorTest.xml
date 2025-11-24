@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.utec.cs3081.domain.GradeCalculatorTest" time="0.058" tests="7" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.utec.cs3081.domain.GradeCalculatorTest" time="0.108" tests="7" errors="0" skipped="0" failures="0">
   <properties>
+    <property name="sonar.projectName" value="[BACKEND] Nieto Paz, Héctor Sebastian"/>
     <property name="java.specification.version" value="25"/>
     <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sonar.host.url" value="http://213.199.42.57:9002/"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.class.path" value="C:\Users\SEBASTIAN\sw-final\target\test-classes;C:\Users\SEBASTIAN\sw-final\target\classes;C:\Users\SEBASTIAN\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.2\junit-jupiter-api-5.9.2.jar;C:\Users\SEBASTIAN\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\SEBASTIAN\.m2\repository\org\junit\platform\junit-platform-commons\1.9.2\junit-platform-commons-1.9.2.jar;C:\Users\SEBASTIAN\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\SEBASTIAN\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.2\junit-jupiter-engine-5.9.2.jar;C:\Users\SEBASTIAN\.m2\repository\org\junit\platform\junit-platform-engine\1.9.2\junit-platform-engine-1.9.2.jar;"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
@@ -15,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="ES"/>
     <property name="sun.boot.library.path" value="C:\Users\SEBASTIAN\.jdks\openjdk-25.0.1\bin"/>
-    <property name="sun.java.command" value="C:\Users\SEBASTIAN\AppData\Local\Temp\surefire5901957494928845211\surefirebooter-20251124172807127_3.jar C:\Users\SEBASTIAN\AppData\Local\Temp\surefire5901957494928845211 2025-11-24T17-28-06_998-jvmRun1 surefire-20251124172807127_1tmp surefire_0-20251124172807127_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\SEBASTIAN\AppData\Local\Temp\surefire17816983346314904428\surefirebooter-20251124173258310_3.jar C:\Users\SEBASTIAN\AppData\Local\Temp\surefire17816983346314904428 2025-11-24T17-32-58_089-jvmRun1 surefire-20251124173258310_1tmp surefire_0-20251124173258310_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\SEBASTIAN\sw-final\target\test-classes;C:\Users\SEBASTIAN\sw-final\target\classes;C:\Users\SEBASTIAN\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.2\junit-jupiter-api-5.9.2.jar;C:\Users\SEBASTIAN\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\SEBASTIAN\.m2\repository\org\junit\platform\junit-platform-commons\1.9.2\junit-platform-commons-1.9.2.jar;C:\Users\SEBASTIAN\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\SEBASTIAN\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.2\junit-jupiter-engine-5.9.2.jar;C:\Users\SEBASTIAN\.m2\repository\org\junit\platform\junit-platform-engine\1.9.2\junit-platform-engine-1.9.2.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,27 +32,31 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\SEBASTIAN\AppData\Local\Temp\surefire5901957494928845211\surefirebooter-20251124172807127_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\SEBASTIAN\AppData\Local\Temp\surefire17816983346314904428\surefirebooter-20251124173258310_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="25.0.1+8-27"/>
     <property name="user.name" value="SEBASTIAN"/>
     <property name="stdout.encoding" value="Cp1252"/>
-    <property name="sonar" value="true"/>
     <property name="path.separator" value=";"/>
     <property name="os.version" value="10.0"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="sonar.tests" value="src/test/java"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="sonar.java.binaries" value="target/classes"/>
     <property name="localRepository" value="C:\Users\SEBASTIAN\.m2\repository"/>
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="java.io.tmpdir" value="C:\Users\SEBAST~1\AppData\Local\Temp\"/>
+    <property name="sonar.token" value="sqp_5e277046ff8ddf05dfc90218c9a11379c9dc63cd"/>
     <property name="java.version" value="25.0.1"/>
     <property name="user.dir" value="C:\Users\SEBASTIAN\sw-final"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sonar.sources" value="src/main/java"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="native.encoding" value="Cp1252"/>
+    <property name="sonar.projectKey" value="Backend-Student-37"/>
     <property name="java.library.path" value="C:\Users\SEBASTIAN\.jdks\openjdk-25.0.1\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.1\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.1\libnvvp;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\NVIDIA Corporation\Nsight Compute 2023.1.1\;C:\Program Files\Docker\Docker\resources\bin;C:\Strawberry\perl\bin;C:\Program Files\nodejs\;C:\Program Files\Sunshine;C:\Program Files\Sunshine\tools;C:\Program Files\CMake\bin;C:\apache-maven-3.9.11\bin;C:\Users\SEBASTIAN\scoop\shims;C:\Users\SEBASTIAN\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\SEBASTIAN\AppData\Local\Programs\Python\Python310\;C:\Users\SEBASTIAN\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\SEBASTIAN\AppData\Local\Programs\Python\Python313\;C:\Users\SEBASTIAN\AppData\Local\Microsoft\WindowsApps;C:\Users\SEBASTIAN\AppData\Local\JetBrains\Toolbox\scripts;C:\Users\SEBASTIAN\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\SEBASTIAN\AppData\Roaming\npm;C:\Users\SEBASTIAN\.dotnet\tools;C:\Program Files\JetBrains\DataGrip 2025.2.4\bin;C:\msys64\ucrt64\bin;C:\Users\SEBASTIAN\miniconda3\Library\bin;C:\Users\SEBASTIAN\miniconda3\Scripts;C:\Users\SEBASTIAN\miniconda3;C:\Users\SEBASTIAN\AppData\Local\Programs\Antigravity\bin;."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
     <property name="stderr.encoding" value="Cp1252"/>
@@ -60,11 +66,11 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="69.0"/>
   </properties>
-  <testcase name="shouldNotApplyBonus_WhenTeachersDisagree" classname="com.utec.cs3081.domain.GradeCalculatorTest" time="0.028"/>
-  <testcase name="shouldApplyBonus_WhenTeachersAgree" classname="com.utec.cs3081.domain.GradeCalculatorTest" time="0.003"/>
+  <testcase name="shouldNotApplyBonus_WhenTeachersDisagree" classname="com.utec.cs3081.domain.GradeCalculatorTest" time="0.045"/>
+  <testcase name="shouldApplyBonus_WhenTeachersAgree" classname="com.utec.cs3081.domain.GradeCalculatorTest" time="0.002"/>
   <testcase name="shouldReturnWeightedSum_WhenAttendanceMetAndNoBonus" classname="com.utec.cs3081.domain.GradeCalculatorTest" time="0.001"/>
-  <testcase name="shouldHandleZeroEvaluations" classname="com.utec.cs3081.domain.GradeCalculatorTest" time="0.001"/>
+  <testcase name="shouldHandleZeroEvaluations" classname="com.utec.cs3081.domain.GradeCalculatorTest" time="0.002"/>
   <testcase name="shouldThrowException_WhenWeightsInvalid" classname="com.utec.cs3081.domain.GradeCalculatorTest" time="0.002"/>
-  <testcase name="shouldCapGradeAt20_WhenSumExceeds20" classname="com.utec.cs3081.domain.GradeCalculatorTest" time="0.001"/>
-  <testcase name="shouldFail_WhenAttendanceNotMet" classname="com.utec.cs3081.domain.GradeCalculatorTest" time="0.0"/>
+  <testcase name="shouldCapGradeAt20_WhenSumExceeds20" classname="com.utec.cs3081.domain.GradeCalculatorTest" time="0.002"/>
+  <testcase name="shouldFail_WhenAttendanceNotMet" classname="com.utec.cs3081.domain.GradeCalculatorTest" time="0.002"/>
 </testsuite>
